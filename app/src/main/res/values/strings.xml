@@ -3,4 +3,19 @@
     <string name="img">img</string>
     <string name="title">Title</string>
     <string name="subtitle">Sub Title</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nowplaying">Now Playing</string>
+    <string name="upcoming">Up  Coming</string>
+    <string name="moviedetails">Movie Details</string>
+    <string name="overview">overview</string>
+    <string name="poster">poster</string>
+    <string name="dummyTitle">This is the movie title</string>
+    <string name="dummyDate">Movie release date</string>
+    <string name="darken">DarkenEffect</string>
+    <string name="backdrop">Backdrop</string>
+    <string name="dummyOverview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur diam eget volutpat porta. Sed dictum id mi in facilisis. Suspendisse vehicula convallis efficitur. Nunc imperdiet velit ut est hendrerit, vel cursus libero pellentesque. Sed varius vel orci in finibus. Etiam eu enim justo. Duis tempor ipsum in sem aliquam, id vestibulum odio imperdiet. Curabitur condimentum sem lacus, nec mattis diam pharetra nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In ac erat at lorem mattis varius. Etiam eu risus metus.</string>
+    <string name="tagline">tagline</string>
+    <string name="vote">vote</string>
+
 </resources>

@@ -18,33 +18,32 @@ import com.bumptech.glide.Glide;
 import com.example.moviedb.R;
 import com.example.moviedb.helper.Const;
 import com.example.moviedb.model.NowPlaying;
+import com.example.moviedb.model.UpComing;
 import com.example.moviedb.view.activities.MovieDetailsActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.CardViewViewHolder>{
-
+public class UpComingAdapter extends RecyclerView.Adapter<UpComingAdapter.CardViewViewHolder>{
     private Context context;
-    private List<NowPlaying.Results> listNowPlaying;
-    private List<NowPlaying.Results> getListNowPlaying(){return listNowPlaying;}
-    public void setListNowPlaying(List<NowPlaying.Results> listNowPlaying){
-        this.listNowPlaying = listNowPlaying;
+    private List<UpComing.Results> listUpComing;
+    private List<UpComing.Results> getListUpComing(){return listUpComing;}
+    public void setListUpComing(List<UpComing.Results> listUpComing){
+        this.listUpComing = listUpComing;
     }
-    public NowPlayingAdapter(Context context){
+    public UpComingAdapter(Context context){
         this.context = context;
     }
 
     @NonNull
     @Override
-    public NowPlayingAdapter.CardViewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public UpComingAdapter.CardViewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_now_playing, parent, false);
-        return new NowPlayingAdapter.CardViewViewHolder(view);
+        return new UpComingAdapter.CardViewViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NowPlayingAdapter.CardViewViewHolder holder, int position) {
-        final NowPlaying.Results results = getListNowPlaying().get(position);
+    public void onBindViewHolder(@NonNull CardViewViewHolder holder, int position) {
+        final UpComing.Results results = getListUpComing().get(position);
         holder.lbl_title.setText(results.getTitle());
         holder.lbl_overview.setText(results.getOverview());
         holder.lbl_release_date.setText(results.getRelease_date());
@@ -52,19 +51,8 @@ public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.Ca
         holder.cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, MovieDetailsActivity.class);
-                //intent.putExtra("movie_id", ""+results.getId());  //harus sama dengan yang di MovieDetailsActivity = "movie_id"
-//                intent.putExtra("movie_title", ""+results.getTitle());
-//                intent.putExtra("movie_poster", ""+Const.IMG_URL+results.getPoster_path());
-//                intent.putExtra("movie_overview", ""+results.getOverview());
-//                intent.putExtra("movie_rdate", ""+results.getRelease_date());
-//                intent.putExtra("movie_popularity", ""+results.getPopularity());
-//                context.startActivity(intent);
-
                 Bundle bundle = new Bundle();
                 bundle.putString("movieId", ""+results.getId());
-//                bundle.putString("genre", ""+results.getGenre_ids());
-                bundle.putIntegerArrayList("genre", (ArrayList<Integer>) results.getGenre_ids());
                 bundle.putString("backdrop", ""+results.getBackdrop_path());
                 bundle.putString("poster", ""+results.getPoster_path());
                 bundle.putString("vote", ""+results.getVote_count());
@@ -73,14 +61,14 @@ public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.Ca
                 bundle.putString("date", ""+results.getRelease_date());
                 bundle.putString("popularity", ""+results.getPopularity());
                 bundle.putString("overview", ""+results.getOverview());
-                Navigation.findNavController(view).navigate(R.id.action_nowPlayingFragment_to_movieDetailsFragment, bundle);
+                Navigation.findNavController(view).navigate(R.id.action_upComingFragment_to_movieDetailsFragment, bundle);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return getListNowPlaying().size();
+        return getListUpComing().size();
     }
 
     public class CardViewViewHolder extends RecyclerView.ViewHolder {

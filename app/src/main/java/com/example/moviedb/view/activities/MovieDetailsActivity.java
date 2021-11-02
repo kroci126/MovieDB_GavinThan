@@ -1,4 +1,4 @@
-package com.example.moviedb.view;
+package com.example.moviedb.view.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,8 +9,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.moviedb.R;
-import com.example.moviedb.adapter.NowPlayingAdapter;
-import com.example.moviedb.helper.Const;
 
 public class MovieDetailsActivity extends AppCompatActivity {
 
